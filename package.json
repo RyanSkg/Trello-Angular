@@ -1,0 +1,9 @@
+{
+  "name": "desafio-sprint7-angular",
+  "private": true,
+  "scripts": {
+    "install:all": "npm --prefix FrontEnd install && npm --prefix BackEnd install",
+    "frontend": "npm --prefix FrontEnd start",
+    "backend": "npm --prefix BackEnd start"
+  }
+}

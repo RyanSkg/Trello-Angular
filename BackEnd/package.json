@@ -1,0 +1,13 @@
+{
+  "name": "api-sprint7-ford",
+  "version": "1.0.0",
+  "description": "API fornecida pelo professor para o Desafio Sprint 7 - Angular (Dashboard Ford)",
+  "main": "api.js",
+  "scripts": {
+    "start": "node api.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  }
+}

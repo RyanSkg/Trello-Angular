@@ -1,0 +1,51 @@
+/* Estilos globais do Ford Dashboard */
+@use 'styles/variables';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.25s ease-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-control {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--foreground);
+
+  &::placeholder {
+    color: var(--muted-fg);
+  }
+
+  &:focus {
+    background-color: var(--surface);
+    border-color: var(--brand);
+    color: var(--foreground);
+    box-shadow: 0 0 0 0.2rem var(--accent);
+  }
+}
+
+.form-label {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--muted-fg);
+}

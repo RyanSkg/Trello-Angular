@@ -1,0 +1,22 @@
+/* Paleta escura roxa/azulada (mesmo padrão OKLCH usado nos outros projetos) */
+:root {
+  --background:        oklch(0.14 0.03 275);
+  --foreground:         oklch(0.96 0.01 280);
+  --surface:            oklch(0.18 0.04 275);
+  --surface-2:          oklch(0.23 0.06 275);
+  --card:               oklch(0.18 0.04 275);
+  --border:             oklch(0.28 0.05 275);
+  --accent:             oklch(0.27 0.08 275);
+  --brand:              oklch(0.58 0.21 290);
+  --brand-foreground:   oklch(0.99 0 0);
+  --brand-soft:         oklch(0.8 0.11 290);
+  --brand-muted:        oklch(0.46 0.09 290);
+  --muted-fg:           oklch(0.6 0.05 275);
+  --success:            oklch(0.72 0.16 155);
+  --danger:             oklch(0.65 0.2 25);
+  --info:               oklch(0.7 0.14 235);
+
+  --radius-lg: 1rem;
+  --radius-md: 0.75rem;
+  --radius-sm: 0.5rem;
+}

@@ -1,0 +1,54 @@
+<div class="pagina-login d-flex align-items-center justify-content-center vh-100">
+  <div class="cartao-login animate-fade-in p-4 p-md-5">
+    <div class="text-center mb-4">
+      <img src="/img/ford.png" alt="Ford" class="marca-logo" />
+      <h4 class="fw-bold mt-3 mb-1">Bem-vindo de volta</h4>
+      <p class="mb-0 texto-fraco">Acesse o painel Ford para continuar</p>
+    </div>
+
+    <div class="alert alert-success py-2 animate-fade-in text-center" *ngIf="usuarioLogado()">
+      Login realizado com sucesso! Bem-vindo(a), {{ usuarioLogado()?.nome }}.
+    </div>
+
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm" *ngIf="!usuarioLogado()">
+      <div class="mb-3">
+        <label for="nome" class="form-label">Usuário</label>
+        <input
+          id="nome"
+          name="nome"
+          type="text"
+          class="form-control"
+          placeholder="Digite seu usuário"
+          [(ngModel)]="nome"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="senha" class="form-label">Senha</label>
+        <input
+          id="senha"
+          name="senha"
+          type="password"
+          class="form-control"
+          placeholder="Digite sua senha"
+          [(ngModel)]="senha"
+          required
+        />
+      </div>
+
+      <div class="alert alert-danger py-2 animate-fade-in" *ngIf="mensagemErro()">
+        {{ mensagemErro() }}
+      </div>
+
+      <button
+        type="submit"
+        class="botao-entrar w-100"
+        [disabled]="!loginForm.form.valid || carregando()"
+      >
+        <span *ngIf="!carregando()">Entrar</span>
+        <span *ngIf="carregando()" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+      </button>
+    </form>
+  </div>
+</div>
