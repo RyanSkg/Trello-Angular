@@ -1,6 +1,6 @@
 import { Component, signal, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { Auth } from '../../../core/services/auth';
-import { LoginResponse } from '../../../core/models/usuario.model';
 
 @Component({
   selector: 'app-login-page',
@@ -10,12 +10,12 @@ import { LoginResponse } from '../../../core/models/usuario.model';
 })
 export class LoginPage {
   private auth = inject(Auth);
+  private router = inject(Router);
 
   nome = '';
   senha = '';
   carregando = signal(false);
   mensagemErro = signal('');
-  usuarioLogado = signal<LoginResponse | null>(null);
 
   onSubmit(): void {
     this.mensagemErro.set('');
@@ -28,9 +28,9 @@ export class LoginPage {
     this.carregando.set(true);
 
     this.auth.login(this.nome, this.senha).subscribe({
-      next: (usuario) => {
+      next: () => {
         this.carregando.set(false);
-        this.usuarioLogado.set(usuario);
+        this.router.navigate(['/home']);
       },
       error: (err) => {
         this.carregando.set(false);

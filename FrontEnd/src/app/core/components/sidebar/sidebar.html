@@ -1,0 +1,46 @@
+<header class="cabecalhoTopo">
+  <button type="button" class="botaoMenu" (click)="toggleMenu()" [attr.aria-expanded]="menuAberto">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+  </button>
+
+  <a routerLink="/home" class="logo">
+    <img src="/img/ford.png" alt="Ford" class="logo-img" />
+    <span class="logo-texto">Ford</span>
+  </a>
+
+  <div class="espaco"></div>
+
+  <div class="usuario" *ngIf="usuario">
+    <div class="avatar">{{ usuario.nome.charAt(0) | uppercase }}</div>
+    <span class="usuario-nome">{{ usuario.nome }}</span>
+  </div>
+</header>
+
+<div class="sobreposicao" [class.sobreposicao--visivel]="menuAberto" (click)="fecharMenu()"></div>
+
+<aside class="sideBar" [class.sideBar--aberta]="menuAberto">
+  <nav class="menu">
+    <p class="titulo-categoria">Geral</p>
+    <ul class="categorias">
+      <li>
+        <a routerLink="/home" routerLinkActive="active" (click)="fecharMenu()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          <span>Início</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/dashboard" routerLinkActive="active" (click)="fecharMenu()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+          <span>Dashboard</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="rodape">
+    <button type="button" class="categorias-link categorias-link--sair" (click)="sair()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+      <span>Sair</span>
+    </button>
+  </div>
+</aside>

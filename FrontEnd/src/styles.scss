@@ -49,3 +49,37 @@ body {
   font-size: 0.85rem;
   color: var(--muted-fg);
 }
+
+/* Área de conteúdo abaixo do cabeçalho fixo (64px). A sidebar é sempre um
+   menu hambúrguer (off-canvas), então o conteúdo não reserva espaço fixo
+   para ela em nenhum tamanho de tela. */
+.conteudo {
+  min-height: 100vh;
+  padding: 84px 1.25rem 2rem;
+
+  @media (min-width: 992px) {
+    padding: 96px 2.5rem 2.5rem;
+  }
+}
+
+.cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+
+  h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.15rem;
+    color: var(--foreground);
+  }
+
+  p {
+    color: var(--muted-fg);
+    margin-bottom: 0;
+    font-size: 0.9rem;
+  }
+}

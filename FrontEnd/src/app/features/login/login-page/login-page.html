@@ -6,11 +6,7 @@
       <p class="mb-0 texto-fraco">Acesse o painel Ford para continuar</p>
     </div>
 
-    <div class="alert alert-success py-2 animate-fade-in text-center" *ngIf="usuarioLogado()">
-      Login realizado com sucesso! Bem-vindo(a), {{ usuarioLogado()?.nome }}.
-    </div>
-
-    <form (ngSubmit)="onSubmit()" #loginForm="ngForm" *ngIf="!usuarioLogado()">
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
       <div class="mb-3">
         <label for="nome" class="form-label">Usuário</label>
         <input

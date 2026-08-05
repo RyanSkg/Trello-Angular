@@ -1,0 +1,25 @@
+<app-sidebar></app-sidebar>
+
+<div class="conteudo">
+  <header class="cabecalho">
+    <div>
+      <h1>Início</h1>
+      <p>Visão geral da sua conta</p>
+    </div>
+  </header>
+
+  <main class="areaBoasVindas">
+    <div class="cartaoBoasVindas animate-fade-in">
+      <p class="saudacao">Olá{{ usuario?.nome ? ', ' + usuario?.nome : '' }} 👋</p>
+      <h2>Bem-vindo ao painel Ford</h2>
+      <p class="descricao">
+        Acompanhe vendas, conectividade e atualizações de software da frota
+        em tempo real, em um único lugar.
+      </p>
+      <a routerLink="/dashboard" class="botaoDashboard">
+        Acessar Dashboard
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+  </main>
+</div>
