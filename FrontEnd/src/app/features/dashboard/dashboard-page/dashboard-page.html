@@ -1,0 +1,50 @@
+<app-sidebar></app-sidebar>
+
+<div class="conteudo">
+  <header class="cabecalho">
+    <div>
+      <h1>Dashboard</h1>
+      <p>Indicadores da frota Ford em tempo real</p>
+    </div>
+  </header>
+
+  <div class="row g-3">
+    <!-- Busca por modelo (Passo 8) -->
+    <div class="col-lg-5">
+      <div class="painelPrincipal h-100">
+        <div class="painelPrincipal-cabecalho">
+          <h2>Buscar veículo por modelo</h2>
+          <div class="campoBusca">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input
+              type="text"
+              placeholder="Ex.: Mustang, Ranger, Territory..."
+              [ngModel]="termoBuscaModelo"
+              (ngModelChange)="onBuscaModeloChange($event)"
+            />
+          </div>
+        </div>
+
+        <div class="chipsFrota" *ngIf="veiculosFiltrados().length">
+          <button
+            *ngFor="let veiculo of veiculosFiltrados()"
+            type="button"
+            class="chip"
+            [class.chip--ativo]="veiculoSelecionado()?.id === veiculo.id"
+            (click)="selecionarVeiculo(veiculo)"
+          >
+            {{ veiculo.vehicle }}
+          </button>
+        </div>
+
+        <p class="textoFraco small mt-3 mb-0" *ngIf="!carregandoVeiculos() && !veiculosFiltrados().length">
+          Nenhum veículo encontrado para "{{ termoBuscaModelo }}".
+        </p>
+
+        <div class="text-center py-5" *ngIf="carregandoVeiculos()">
+          <div class="spinner-border" role="status"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

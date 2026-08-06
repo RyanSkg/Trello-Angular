@@ -1,0 +1,81 @@
+.textoFraco {
+  color: var(--muted-fg);
+}
+
+/* Painel de busca por modelo (Passo 8) */
+
+.painelPrincipal {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+}
+
+.painelPrincipal-cabecalho {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  h2 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--foreground);
+    margin-bottom: 0;
+  }
+}
+
+.campoBusca {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  flex: 1;
+  max-width: 320px;
+  color: var(--muted-fg);
+
+  input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--foreground);
+    font-size: 13px;
+
+    &::placeholder {
+      color: var(--muted-fg);
+    }
+  }
+}
+
+.chipsFrota {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.chip {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--muted-fg);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 500;
+
+  &:hover {
+    border-color: var(--brand);
+    color: var(--brand-soft);
+  }
+
+  &--ativo {
+    background: var(--brand);
+    border-color: var(--brand);
+    color: var(--brand-foreground);
+  }
+}
