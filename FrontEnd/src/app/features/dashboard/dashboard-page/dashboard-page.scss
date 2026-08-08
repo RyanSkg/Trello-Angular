@@ -2,6 +2,101 @@
   color: var(--muted-fg);
 }
 
+.selo {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 999px;
+
+  &--on {
+    color: var(--success);
+    background: color-mix(in oklch, var(--success) 18%, transparent);
+  }
+
+  &--off {
+    color: var(--danger);
+    background: color-mix(in oklch, var(--danger) 18%, transparent);
+  }
+}
+
+/* Cartões de destaque (Passo 9) */
+
+.cartaoDestaque {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  color: var(--foreground);
+}
+
+.cartaoDestaque-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.iconeDestaque {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: var(--accent);
+  color: var(--brand-soft);
+
+  &--1 {
+    color: var(--info);
+  }
+
+  &--2 {
+    color: var(--danger);
+  }
+}
+
+.iconeLink {
+  color: var(--muted-fg);
+}
+
+.cartaoDestaque-rotulo {
+  font-size: 13px;
+  color: var(--muted-fg);
+  margin-bottom: 4px;
+}
+
+.cartaoDestaque-taxa {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.miniGrafico {
+  width: 100%;
+  height: 32px;
+  overflow: visible;
+
+  polyline {
+    fill: none;
+    stroke: var(--success);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  &--baixa polyline {
+    stroke: var(--danger);
+  }
+}
+
 /* Painel de busca por modelo (Passo 8) */
 
 .painelPrincipal {
@@ -78,4 +173,27 @@
     border-color: var(--brand);
     color: var(--brand-foreground);
   }
+}
+
+/* Cartões de indicadores (Passo 9) */
+
+.cartaoMetrica {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.cartaoMetrica-rotulo {
+  font-size: 12px;
+  color: var(--muted-fg);
+  margin-bottom: 6px;
+}
+
+.cartaoMetrica-valor {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--foreground);
+  margin-bottom: 0;
 }

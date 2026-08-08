@@ -17,6 +17,9 @@ export class DashboardPage implements OnInit, OnDestroy {
   veiculos = signal<Veiculo[]>([]);
   carregandoVeiculos = signal(false);
 
+  // Destaques (Passo 9): os 3 veículos com maior volume de vendas
+  emDestaque = signal<Veiculo[]>([]);
+
   // Busca por modelo (Passo 8)
   termoBuscaModelo = '';
   veiculosFiltrados = signal<Veiculo[]>([]);
@@ -31,12 +34,16 @@ export class DashboardPage implements OnInit, OnDestroy {
       next: (veiculos) => {
         this.veiculos.set(veiculos);
         this.veiculosFiltrados.set(veiculos);
+        this.emDestaque.set(
+          [...veiculos].sort((a, b) => Number(b.volumetotal) - Number(a.volumetotal)).slice(0, 3)
+        );
         this.carregandoVeiculos.set(false);
         this.selecionarVeiculo(veiculos[0]);
       },
       error: () => {
         this.veiculos.set([]);
         this.veiculosFiltrados.set([]);
+        this.emDestaque.set([]);
         this.carregandoVeiculos.set(false);
       },
     });
@@ -82,5 +89,11 @@ export class DashboardPage implements OnInit, OnDestroy {
   selecionarVeiculo(veiculo: Veiculo | undefined | null): void {
     if (!veiculo) return;
     this.veiculoSelecionado.set(veiculo);
+  }
+
+  taxaConectividade(veiculo: Veiculo): number {
+    const total = Number(veiculo.volumetotal) || 0;
+    const conectados = Number(veiculo.connected) || 0;
+    return total > 0 ? Math.round((conectados / total) * 100) : 0;
   }
 }
